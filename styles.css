@@ -1,0 +1,59 @@
+#playing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  border-radius:  20px;
+  width: 150px; 
+  height: 250px;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.fire{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px ;
+    padding: 2px;
+    
+    background-color: linear-gradient(to right, red, orange);
+  
+  
+    }
+   
+
+
+.left{
+   background-image: url('left.jpg'); 
+   width: 100%;
+   height: 100%;
+   border-radius: 20px;
+  background-size: cover;     
+  background-position: center; 
+  margin: 0 auto;
+}
+
+
+.middle{
+   background-image: url('center.jpg'); 
+   width: 100%;
+   height: 100%;
+   border-radius: 20px;
+  background-size: cover;     
+  background-position: center; 
+}
+
+.right{
+   background-image: url('rigth.jpg'); 
+   width: 100%;
+   height: 100%;
+   border-radius: 20px;
+  background-size: cover;     
+  background-position: center; 
+}
