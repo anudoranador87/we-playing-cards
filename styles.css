@@ -43,6 +43,7 @@ body {
   overflow: hidden;   
   background: none;  
   filter: grayscale(0%) brightness(1);
+
 }
 
 
@@ -171,4 +172,14 @@ body {
 .card:active {
   border-color: gold;  
   box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+
+.card-legendary{
+
+  border: 3px solid gold;
+  -moz-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
+-webkit-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
+-o-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
+-ms-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
+transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
 }

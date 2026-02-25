@@ -1,15 +1,11 @@
 -# Playing Cards Page - freeCodeCamp Certification
 
-
-
 This project is part of the **Responsive Web Design** certification from freeCodeCamp. The goal is to build a webpage that displays playing cards using advanced CSS techniques like **Flexbox** to handle layouts, alignment, and spacing.
-
 
 
 ## 🚀 Objective
 
 Build a functionally complete and visually appealing playing cards app that fulfills all the user stories provided by the lab, while adding my personal style to the design.
-
 
 
 ## 🛠️ Tech Stack
@@ -20,13 +16,9 @@ Build a functionally complete and visually appealing playing cards app that fulf
 
 * Git/GitHub (Version control)
 
-
-
 ## 📈 Progress Log
 
 I will be posting my daily progress and updates here as I work through the requirements.
-
-
 
 - [x] Initial repository setup and README creation.
 
@@ -40,7 +32,7 @@ I will be posting my daily progress and updates here as I work through the requi
 
 - [x] Final polishing and design touches.
 
-- [ ] Adding interactivity next with Javascript to the cards.
+- [x] Adding interactivity next with Javascript to the cards.
 
 - [ ] Make a Card Game.
 
