@@ -78,12 +78,6 @@ This project transforms a classic lab exercise into a **polished, interactive, a
 
 ---
 
-## 🔗 Links
-
-- **Repository:** [GitHub](https://github.com/anudoranador87/we-playing-cards.git)  
-- **Live Preview:** ![Preview](previewcards.png) *(replace with hosted URL if available)*  
-
----
 
 ## 🖋️ Author
 
