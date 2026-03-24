@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playing Cards</title>
-  <link rel="stylesheet" href="styles.css">
-</head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego de Cartas Estratégico</title>
+<link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
+  <!-- Cartas del jugador -->
   <main id="playing-cards">
-    <div class="card" data-nombre = "Sirena">
-      <div class="left">🔥</div>
-      <div class="middle">🌿</div>
-      <div class="right">⚡</div>
-      <p>Nivel: <span class="counter">0</span></p>
-    </div>
-
-    <div class="card" data-nombre = "Dragón">
-      <div class="left">☀️</div>
-      <div class="middle">🌙</div>
-      <div class="right">⭐</div>
-      <p>Level: <span class="counter">0</span></p>
-    </div>
-
-    <div class="card" data-nombre= "Fénix">
-      <div class="left">⚔️</div>
-      <div class="middle">🛡️</div>
-      <div class="right">🧪</div>
-      <p>Nivel: <span class="counter">0</span></p>
-    </div>
+    <div class="card" data-nombre="Dragón"><h3></h3><p class="counter">0</p></div>
+    <div class="card" data-nombre="Sirena"><h3></h3><p class="counter">0</p></div>
+    <div class="card" data-nombre="Fenix"><h3></h3><p class="counter">0</p></div>
+    <div class="card" data-nombre="Golem"><h3></h3><p class="counter">0</p></div>
+    <div class="card" data-nombre="Rayo"><h3></h3><p class="counter">0</p></div>
+   >
   </main>
+  
+  
+  <div class="stats-container">
+    <div class="player-stats">
+        <div class="hp-bar-container"><div id="player-hp-bar" class="bar hp"></div></div>
+        <div class="mana-bar-container"><div id="player-mana-bar" class="bar mana"></div></div>
+        <div id="player-status-icons" class="status-icons"></div>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="cpu-stats">
+        <div class="hp-bar-container"><div id="cpu-hp-bar" class="bar hp"></div></div>
+        <div id="cpu-status-icons" class="status-icons"></div>
+    </div>
+</div>
+
+  <!-- Panel de acciones -->
+  <section id="player-actions">
+    <h3>Elige tu acción</h3>
+    <button class="action" data-type="attack">Ataque</button>
+    <button class="action" data-type="defense">Defensa</button>
+    <button class="action" data-type="special-plus10">+10 Ataque</button>
+    <button class="action" data-type="special-block">Bloquear enemigo</button>
+  </section>
+
+  <!-- Dado -->
+  <section id="dice">
+    <h3>Dado</h3>
+    <button id="roll-dice">Tirar dado</button>
+    <span id="dice-result">0</span>
+  </section>
+  <section id="cpu-field">
+    <div id="cpu-card-slot" class="card">
+        <h3>Enemigo</h3>
+        <p class="counter">?</p>
+    </div>
+    <div class="health-container">
+        <div id="player-hp-bar" class="hp-bar"></div>
+        <div id="cpu-hp-bar" class="hp-bar"></div>
+    </div>
+</section>
+
+  <!-- Consola -->
+  <section id="game-ui">
+    <div id="score">Jugador: 0 | Máquina: 0</div>
+    <div id="turn">Turno: 1</div>
+    <div id="log">Aquí se mostrarán los resultados de cada turno</div>
+  </section>
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -1,54 +1,47 @@
-html{
+html {
   box-sizing: border-box;
   margin: 0;
 }
 
+body {
+  background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+  background-color: #2c1b10; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ajustamos para que la consola no se superponga */
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 20px;
+}
 
+/* -------------------- Cartas -------------------- */
 #playing-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0 0 200px 0 ;
-
-}
-
-body {
-  /* Añado madera oscura para mejor visualizacion */
-  background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png');
-  background-color: #2c1b10; 
-  
- 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 200px;
 }
 
 .card {
   display: flex;
   justify-content: space-between;
-  border-radius:  20px;
+  border-radius: 20px;
   width: 150px; 
   height: 250px;
   border: 2px solid black;
   padding: 10px;
   margin-top: 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)  ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform-origin: 0% 50%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative; 
   overflow: hidden;   
   background: none;  
   filter: grayscale(0%) brightness(1);
-
 }
 
-
- 
-/* Modifica o añade esta regla */
 .card p {
   position: absolute;  
   bottom: 20px;        
@@ -57,87 +50,31 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  
- 
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /
+  font-size: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   pointer-events: none; 
-}
-
-.fire{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px ;
-    padding: 2px;
-    
-     
-    }
-   
-
-
-.left {
-  display: flex;
-  align-self: flex-start;
-
-  font-size: 30px;
-}
-
-.middle {
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  font-size: 30px;
-}
-.right {
-  display: flex;
-  align-self: flex-end;
-  font-size: 30px;
-}
-
-
-.card:nth-child(1) {
-  background: linear-gradient(135deg, #fff5f5 0%, #feb2b2 100%);
-  border-color: #c53030;
- background: url('left.jpg') center/cover no-repeat;
- 
-
-}
-
-
-.card:nth-child(2) {
-  background: linear-gradient(135deg, #ebf8ff 0%, #90cdf4 100%);
-  border-color: #2b6cb0;
-  background: url('center.jpg') center/cover no-repeat;
-}
-
-
-.card:nth-child(3) {
-  background: linear-gradient(135deg, #f0fff4 0%, #9ae6b4 100%);
-  border-color: #2f855a;
-  background: url('rigth.jpg') center/cover no-repeat;
 }
 
 .card:hover {
   transform: translateY(-15px) rotateX(10deg); 
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6); /* Pongo una sombra mas profunda al hacer hover */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
+
 .card:active {
   transform: scale(0.95);
   transition: transform 0.1s ease;
-  
+  border-color: gold;  
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
 }
 
-.card p{
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+.card-legendary {
+  border: 3px solid gold;
+  transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
 }
-/* Uso las pseudo classes para hacer las cartas interactivas*/
+
 .card::before {
   content: "";
   position: absolute;
@@ -148,38 +85,215 @@ body {
   z-index: -1; 
   background-size: cover;
   background-position: center;
- 
-
   filter: grayscale(80%) brightness(0.9); 
   transition: filter 0.9s ease;
 }
 
-
 .card:hover::before {
-  filter: grayscale(0%) brightness(1.2) 
+  filter: grayscale(0%) brightness(1.2);
 }
 
-.card:nth-child(1)::before { background-image: url('left.jpg'); }
-.card:nth-child(2)::before { background-image: url('center.jpg'); }
-.card:nth-child(3)::before { background-image: url('rigth.jpg'); }
+/* Ejemplo de imágenes para 3 primeras cartas */
+.card:nth-child(1)::before { background-image: url('Gemini_Generated_Image_gcr1ppgcr1ppgcr1.png'); }
+.card:nth-child(2)::before { background-image: url('sirena.png'); }
+.card:nth-child(3)::before { background-image: url('phoenix.png'); }
+.card:nth-child(4)::before { background-image: url('golem.png'); }
+.card:nth-child(5)::before { background-image: url('rayo.png'); }
+.card:nth-child(6)::before { background-image: url('kraken.png'); }
 
 
 .card:active::before {
-  filter: grayscale(0%) brightness(1.5) contrast(1.2); /* Añado una Explosión de color */
+  filter: grayscale(0%) brightness(1.5) contrast(1.2);
   transition: filter 0.1s; 
 }
-/* Al pulsar, añado algunos efectos*/
-.card:active {
-  border-color: gold;  
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+
+/* -------------------- Consola / UI -------------------- */
+#game-ui {
+  width: 300px;
+  background-color: rgba(0,0,0,0.6);
+  padding-top: 12px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  
+  gap: 10px;
+  position: fixed;
+  top: 400px;
+  right: 20px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 100;
 }
 
-.card-legendary{
+#score, #turn {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
 
-  border: 3px solid gold;
-  -moz-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
--webkit-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
--o-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
--ms-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
-transform: scale(1.2) translate(-3px, -26px) skew(0deg, 4deg);
+#log {
+  font-size: 16px;
+  background-color: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 150px;
+  overflow-y: auto;
+  white-space: pre-line;
+}
+
+/* -------------------- Panel de acciones -------------------- */
+#player-actions {
+  width: 300px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#player-actions button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2b6cb0;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+#player-actions button:hover {
+  background-color: #2c5282;
+}
+
+/* -------------------- Dado -------------------- */
+#dice {
+  width: 150px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#dice button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #c53030;
+  color: white;
+}
+
+#dice button:hover {
+  background-color: #9b2c2c;
+}
+
+#dice-result {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* añado animaciones */
+.atacar {
+  animation: golpe 0.4s ease-in-out;
+}
+/* Barras de Vida */
+.health-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+}
+.hp-bar {
+    width: 45%;
+    height: 20px;
+    background: #444;
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+}
+.hp-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    background: #27ae60;
+    width: 100%;
+    transition: width 0.5s ease;
+}
+#cpu-hp-bar::after { background: #e74c3c; }
+
+/* Animaciones */
+.shake { animation: shake 0.5s; }
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.glow-win { box-shadow: 0 0 30px #27ae60 !important; }
+@keyframes golpe {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-50px) scale(1.1); }
+  100% { transform: translateY(0); }
+}
+
+/* Contenedores de barras */
+.bar {
+    height: 12px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+}
+
+.hp { background: linear-gradient(90deg, #ff4b2b, #ff416c); }
+.mana { background: linear-gradient(90deg, #00d2ff, #3a7bd5); box-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+
+.hp-bar-container, .mana-bar-container {
+    width: 200px;
+    background: #222;
+    border: 1px solid #444;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Iconos de Estado sobre las cartas o barras */
+.status-icons {
+    display: flex;
+    gap: 5px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.icon-fuego { color: #ff6600; filter: drop-shadow(0 0 5px #ff6600); animation: pulse 1s infinite; }
+.icon-hielo { color: #00ffff; filter: drop-shadow(0 0 5px #00ffff); }
+.icon-escudo { color: #cccccc; filter: drop-shadow(0 0 5px #ffffff); }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Coste de maná en la carta */
+.mana-cost {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    background: rgba(0, 150, 255, 0.8);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
