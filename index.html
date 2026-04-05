@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +10,24 @@
 
   <!-- Cartas del jugador -->
   <main id="playing-cards">
-    <div class="card" data-nombre="Dragón"><h3></h3><p class="counter">0</p></div>
-    <div class="card" data-nombre="Sirena"><h3></h3><p class="counter">0</p></div>
-    <div class="card" data-nombre="Fenix"><h3></h3><p class="counter">0</p></div>
-    <div class="card" data-nombre="Golem"><h3></h3><p class="counter">0</p></div>
-    <div class="card" data-nombre="Rayo"><h3></h3><p class="counter">0</p></div>
-   >
+    <div class="card" data-nombre="Dragón"><h3>Dragón</h3><p class="counter">Coste: 20</p></div>
+    <div class="card" data-nombre="Sirena"><h3>Sirena</h3><p class="counter">Coste: 15</p></div>
+    <div class="card" data-nombre="Fenix"><h3>Fenix</h3><p class="counter">Coste: 15</p></div>
+    <div class="card" data-nombre="Golem"><h3>Golem</h3><p class="counter">Coste: 10</p></div>
+    <div class="card" data-nombre="Rayo"><h3>Rayo</h3><p class="counter">Coste: 30</p></div>
   </main>
-  
   
   <div class="stats-container">
     <div class="player-stats">
-        <div class="hp-bar-container"><div id="player-hp-bar" class="bar hp"></div></div>
-        <div class="mana-bar-container"><div id="player-mana-bar" class="bar mana"></div></div>
+        <h4>Jugador</h4>
+        <div class="hp-bar-container"><div id="player-hp-bar-visual" class="bar hp" style="width: 100%;"></div></div>
+        <div class="mana-bar-container"><div id="player-mana-bar" class="bar mana" style="width: 100%;"></div></div>
         <div id="player-status-icons" class="status-icons"></div>
     </div>
 
     <div class="cpu-stats">
-        <div class="hp-bar-container"><div id="cpu-hp-bar" class="bar hp"></div></div>
+        <h4>Enemigo</h4>
+        <div class="hp-bar-container"><div id="cpu-hp-bar-visual" class="bar hp" style="width: 100%;"></div></div>
         <div id="cpu-status-icons" class="status-icons"></div>
     </div>
 </div>
@@ -43,27 +43,24 @@
 
   <!-- Dado -->
   <section id="dice">
-    <h3>Dado</h3>
+    <h3>Dado de Bono</h3>
     <button id="roll-dice">Tirar dado</button>
     <span id="dice-result">0</span>
   </section>
+
   <section id="cpu-field">
     <div id="cpu-card-slot" class="card">
         <h3>Enemigo</h3>
         <p class="counter">?</p>
     </div>
-    <div class="health-container">
-        <div id="player-hp-bar" class="hp-bar"></div>
-        <div id="cpu-hp-bar" class="hp-bar"></div>
-    </div>
 </section>
 
   <!-- Consola -->
   <section id="game-ui">
-    <div id="score">Jugador: 0 | Máquina: 0</div>
     <div id="turn">Turno: 1</div>
     <div id="log">Aquí se mostrarán los resultados de cada turno</div>
   </section>
+
 <script src="script.js"></script>
 
 </body>
