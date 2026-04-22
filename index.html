@@ -3,65 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juego de Cartas Estratégico</title>
+<title>We Playing Cards — Juego Estratégico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Cartas del jugador -->
-  <main id="playing-cards">
-    <div class="card" data-nombre="Dragón"><h3>Dragón</h3><p class="counter">Coste: 20</p></div>
-    <div class="card" data-nombre="Sirena"><h3>Sirena</h3><p class="counter">Coste: 15</p></div>
-    <div class="card" data-nombre="Fenix"><h3>Fenix</h3><p class="counter">Coste: 15</p></div>
-    <div class="card" data-nombre="Golem"><h3>Golem</h3><p class="counter">Coste: 10</p></div>
-    <div class="card" data-nombre="Rayo"><h3>Rayo</h3><p class="counter">Coste: 30</p></div>
-  </main>
-  
-  <div class="stats-container">
-    <div class="player-stats">
-        <h4>Jugador</h4>
-        <div class="hp-bar-container"><div id="player-hp-bar-visual" class="bar hp" style="width: 100%;"></div></div>
-        <div class="mana-bar-container"><div id="player-mana-bar" class="bar mana" style="width: 100%;"></div></div>
+  <div class="bg-layer"></div>
+  <div class="bg-vignette"></div>
+
+  <header class="game-header">
+    <div class="header-ornament">✦</div>
+    <h1 class="game-title">We Playing Cards</h1>
+    <p class="game-subtitle">Duelo de Elementos · Elige tu carta · Que gane la lógica</p>
+    <div class="header-ornament">✦</div>
+  </header>
+
+  <div class="game-board">
+
+    <!-- IZQUIERDA: Stats -->
+    <aside class="side-panel left-panel">
+      <div class="panel-block">
+        <h2 class="panel-title">Jugador</h2>
+        <div class="stat-row">
+          <span class="stat-label">❤️ Vida</span>
+          <div class="hp-bar-container"><div id="player-hp-bar-visual" class="bar hp" style="width:100%"></div></div>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">💧 Maná</span>
+          <div class="mana-bar-container"><div id="player-mana-bar" class="bar mana" style="width:100%"></div></div>
+        </div>
         <div id="player-status-icons" class="status-icons"></div>
-    </div>
-
-    <div class="cpu-stats">
-        <h4>Enemigo</h4>
-        <div class="hp-bar-container"><div id="cpu-hp-bar-visual" class="bar hp" style="width: 100%;"></div></div>
+      </div>
+      <div class="panel-block enemy-block">
+        <h2 class="panel-title">Enemigo</h2>
+        <div class="stat-row">
+          <span class="stat-label">❤️ Vida</span>
+          <div class="hp-bar-container"><div id="cpu-hp-bar-visual" class="bar hp" style="width:100%"></div></div>
+        </div>
         <div id="cpu-status-icons" class="status-icons"></div>
+      </div>
+      <div class="panel-block">
+        <div id="turn" class="turn-display">Turno: 1</div>
+      </div>
+    </aside>
+
+    <!-- CENTRO: Campo de batalla -->
+    <div class="battle-field">
+
+      <div class="field-zone enemy-zone">
+        <p class="zone-label">— Campo Enemigo —</p>
+        <section id="cpu-field">
+          <div id="cpu-card-slot" class="card card-back">
+            <div class="card-inner">
+              <h3>?</h3>
+              <p class="counter">Esperando...</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="battle-divider">
+        <div class="divider-line"></div>
+        <span class="divider-gem">⬡</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="field-zone player-zone">
+        <p class="zone-label">— Elige tu carta —</p>
+        <main id="playing-cards">
+          <div class="card" data-nombre="Dragón">
+            <div class="card-inner">
+              <div class="card-type-badge fire">🔥 Fuego</div>
+              <h3>Dragón</h3>
+              <div class="card-stats"><span class="cs atk">⚔ 90</span><span class="cs def">🛡 60</span></div>
+              <p class="counter mana-badge">💧 20</p>
+            </div>
+          </div>
+          <div class="card" data-nombre="Sirena">
+            <div class="card-inner">
+              <div class="card-type-badge water">💧 Agua</div>
+              <h3>Sirena</h3>
+              <div class="card-stats"><span class="cs atk">⚔ 60</span><span class="cs def">🛡 85</span></div>
+              <p class="counter mana-badge">💧 15</p>
+            </div>
+          </div>
+          <div class="card" data-nombre="Fenix">
+            <div class="card-inner">
+              <div class="card-type-badge fire">🔥 Fuego</div>
+              <h3>Fénix</h3>
+              <div class="card-stats"><span class="cs atk">⚔ 80</span><span class="cs def">🛡 70</span></div>
+              <p class="counter mana-badge">💧 15</p>
+            </div>
+          </div>
+          <div class="card" data-nombre="Golem">
+            <div class="card-inner">
+              <div class="card-type-badge earth">🌍 Tierra</div>
+              <h3>Gólem</h3>
+              <div class="card-stats"><span class="cs atk">⚔ 50</span><span class="cs def">🛡 95</span></div>
+              <p class="counter mana-badge">💧 10</p>
+            </div>
+          </div>
+          <div class="card" data-nombre="Rayo">
+            <div class="card-inner">
+              <div class="card-type-badge air">⚡ Aire</div>
+              <h3>Rayo</h3>
+              <div class="card-stats"><span class="cs atk">⚔ 95</span><span class="cs def">🛡 40</span></div>
+              <p class="counter mana-badge">💧 30</p>
+            </div>
+          </div>
+        </main>
+      </div>
+
     </div>
-</div>
 
-  <!-- Panel de acciones -->
-  <section id="player-actions">
-    <h3>Elige tu acción</h3>
-    <button class="action" data-type="attack">Ataque</button>
-    <button class="action" data-type="defense">Defensa</button>
-    <button class="action" data-type="special-plus10">+10 Ataque</button>
-    <button class="action" data-type="special-block">Bloquear enemigo</button>
-  </section>
+    <!-- DERECHA: Log + Acciones + Dado -->
+    <aside class="side-panel right-panel">
+      <div class="panel-block log-block">
+        <h2 class="panel-title">Registro</h2>
+        <div id="log" class="battle-log">Selecciona una carta para comenzar.</div>
+      </div>
+      <div class="panel-block">
+        <h2 class="panel-title">Acciones</h2>
+        <section id="player-actions">
+          <button class="action" data-type="attack">⚔️ Ataque</button>
+          <button class="action" data-type="defense">🛡️ Defensa</button>
+          <button class="action" data-type="special-plus10">🔥 Poder Ancestral</button>
+          <button class="action" data-type="special-block">❄️ Bloquear</button>
+        </section>
+      </div>
+      <div class="panel-block dice-block">
+        <h2 class="panel-title">Dado de Bono</h2>
+        <section id="dice">
+          <button id="roll-dice">🎲 Tirar dado</button>
+          <span id="dice-result" class="dice-value">0</span>
+        </section>
+      </div>
+    </aside>
 
-  <!-- Dado -->
-  <section id="dice">
-    <h3>Dado de Bono</h3>
-    <button id="roll-dice">Tirar dado</button>
-    <span id="dice-result">0</span>
-  </section>
+  </div>
 
-  <section id="cpu-field">
-    <div id="cpu-card-slot" class="card">
-        <h3>Enemigo</h3>
-        <p class="counter">?</p>
+  <footer class="game-footer">
+    <p class="legend-title">Tabla Elemental</p>
+    <div class="legend-row">
+      <span>🔥 vence a 💧</span>
+      <span>💧 vence a ⚡</span>
+      <span>⚡ vence a 🌍</span>
+      <span>🌍 vence a 🔥</span>
     </div>
-</section>
-
-  <!-- Consola -->
-  <section id="game-ui">
-    <div id="turn">Turno: 1</div>
-    <div id="log">Aquí se mostrarán los resultados de cada turno</div>
-  </section>
+  </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
