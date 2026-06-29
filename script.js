@@ -107,22 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- EVENTOS ---
     // Clic en cartas del jugador
     document.querySelectorAll('.card').forEach(card => {
-        if (card.id === "cpu-card-slot") return;
+    if (card.id === "cpu-card-slot") return;
 
-        card.addEventListener('click', function() {
-            const nombreCarta = this.dataset.nombre;
-            const miCarta = mazo.find(c => c.nombre.toLowerCase() === nombreCarta.toLowerCase());
-            
-            if (estadoJuego.manaJugador >= miCarta.coste) {
-                estadoJuego.manaJugador -= miCarta.coste;
-                ejecutarDuelo(miCarta);
-            } else {
-                log.innerText = `⚠️ ¡Energía insuficiente! Necesitas ${miCarta.coste} de Maná.`;
-                this.classList.add('shake');
-                setTimeout(() => this.classList.remove('shake'), 500);
-            }
-        });
+    card.addEventListener('click', function() {
+        // Flip visual effect
+        if (!this.classList.contains('is-flipped')) {
+            this.classList.add('is-flipped');
+        }
+        const nombreCarta = this.dataset.nombre;
+        const miCarta = mazo.find(c => c.nombre.toLowerCase() === nombreCarta.toLowerCase());
+        
+        if (estadoJuego.manaJugador >= miCarta.coste) {
+            estadoJuego.manaJugador -= miCarta.coste;
+            ejecutarDuelo(miCarta);
+        } else {
+            log.innerText = `⚠️ ¡Energía insuficiente! Necesitas ${miCarta.coste} de Maná.`;
+            this.classList.add('shake');
+            setTimeout(() => this.classList.remove('shake'), 500);
+        }
     });
+});
 
     // Panel de acciones
     document.querySelectorAll('.action').forEach(boton => {
